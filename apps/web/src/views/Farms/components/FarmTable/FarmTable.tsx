@@ -167,7 +167,7 @@ const FarmTable: React.FC<React.PropsWithChildren<ITableProps>> = ({ farms, cake
   }
 
   const sortedRows = rowData.map(generateSortedRow)
-
+  console.log('111xxx8---3', sortedRows[0])
   return (
     <Container id="farms-table">
       <TableContainer id="table-container">

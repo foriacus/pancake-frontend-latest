@@ -20,7 +20,6 @@ export const getFarmConfig = async (chainId: ChainId) => {
 export const getStableConfig = async (chainId: ChainId) => {
   try {
     const farms = (await import(`/${chainId}.ts`)).default as SerializedFarmConfig[]
-
     return farms.filter(isStableFarm)
   } catch (error) {
     if (!logged) {

@@ -39,7 +39,6 @@ export const fetchFarmUserTokenBalances = async (account: string, farmsToFetch: 
 
 export const fetchFarmUserStakedBalances = async (account: string, farmsToFetch: SerializedFarmConfig[]) => {
   const masterChefAddress = getMasterChefV1Address()
-
   const calls = farmsToFetch.map((farm) => {
     return {
       address: masterChefAddress,

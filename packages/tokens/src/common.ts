@@ -9,6 +9,15 @@ export const CAKE_MAINNET = new ERC20Token(
   'https://pancakeswap.finance/',
 )
 
+export const OKC_TESTNET = new ERC20Token(
+  ChainId.OKCTEST,
+  '0xDa9d14072Ef2262c64240Da3A93fea2279253611',
+  18,
+  'OKT',
+  'OKCoin Token',
+  'https://pancakeswap.finance/',
+)
+
 export const CAKE_TESTNET = new ERC20Token(
   ChainId.BSC_TESTNET,
   '0xFa60D973F7642B748046464e165A65B7323b0DEE',
@@ -96,6 +105,15 @@ export const BUSD_TESTNET = new ERC20Token(
   'https://www.paxos.com/busd/',
 )
 
+export const BUSD_OKCTESTNET = new ERC20Token(
+  ChainId.OKCTEST,
+  '0xDA0d1ede26D34763FCa0687D3bC3382181846C7d',
+  18,
+  'BUSD',
+  'OKCEx USD',
+  'https://www.paxos.com/busd/',
+)
+
 export const BUSD_ETH = new ERC20Token(
   ChainId.ETHEREUM,
   '0x4Fabb145d64652a948d72533023f6E7A623C7C53',
@@ -129,11 +147,13 @@ export const BUSD: Record<ChainId, ERC20Token> = {
   [ChainId.GOERLI]: BUSD_GOERLI,
   [ChainId.BSC]: BUSD_BSC,
   [ChainId.BSC_TESTNET]: BUSD_TESTNET,
+  [ChainId.OKCTEST]: BUSD_OKCTESTNET,
 }
 
 export const CAKE = {
   [ChainId.BSC]: CAKE_MAINNET,
   [ChainId.BSC_TESTNET]: CAKE_TESTNET,
+  [ChainId.OKCTEST]: OKC_TESTNET,
 }
 
 export const USDC = {

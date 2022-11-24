@@ -65,7 +65,6 @@ const fetchFarmPublicDataPkg = async ({ pids, chainId, chain }): Promise<[Serial
   const farmsConfig = await getFarmConfig(chainId)
   const farmsCanFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid))
   const priceHelperLpsConfig = getFarmsPriceHelperLpFiles(chainId)
-
   const { farmsWithPrice, poolLength, regularCakePerBlock } = await farmFetcher.fetchFarms({
     chainId,
     isTestnet: chain.testnet,
@@ -124,6 +123,7 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
     if (state.farms.chainId !== chainId) {
       await dispatch(fetchInitialFarmsData({ chainId }))
     }
+
     const chain = chains.find((c) => c.id === chainId)
     if (!chain || !farmFetcher.isChainSupported(chain.id)) throw new Error('chain not supported')
     try {
@@ -132,20 +132,20 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
       }
       if (flag === 'api' && !fallback) {
         try {
-          const { updatedAt, data: farmsWithPrice, poolLength, regularCakePerBlock } = await farmApiFetch(chainId)
+          const { updatedAt, data: farmsWithPrice, poolLength, regularCakePerBlock } = await farmApiFetch(56)
           if (Date.now() - new Date(updatedAt).getTime() > 3 * 60 * 1000) {
             fallback = true
             throw new Error('Farm Api out dated')
           }
           return [farmsWithPrice, poolLength, regularCakePerBlock]
         } catch (error) {
-          console.error(error)
+          console.error('oopsxxx', error)
           return fetchFarmPublicDataPkg({ pids, chainId, chain })
         }
       }
       return fetchFarmPublicDataPkg({ pids, chainId, chain })
     } catch (error) {
-      console.error(error)
+      console.error('oopsxxx', error)
       throw error
     }
   },
@@ -326,7 +326,7 @@ export const farmsSlice = createSlice({
     builder.addCase(fetchFarmsPublicDataAsync.fulfilled, (state, action) => {
       const [farmPayload, poolLength, regularCakePerBlock] = action.payload
       const farmPayloadPidMap = fromPairs(farmPayload.map((farmData) => [farmData.pid, farmData]))
-
+      
       state.data = state.data.map((farm) => {
         const liveFarmData = farmPayloadPidMap[farm.pid]
         return { ...farm, ...liveFarmData }

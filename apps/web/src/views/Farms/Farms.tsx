@@ -1,7 +1,7 @@
 import { useEffect, useCallback, useState, useMemo, useRef, createContext } from 'react'
 import { createPortal } from 'react-dom'
 import BigNumber from 'bignumber.js'
-import { ChainId } from '@pancakeswap/sdk'
+import { ChainId, computePairAddress } from '@pancakeswap/sdk'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { useWeb3React } from '@pancakeswap/wagmi'
 import {
@@ -350,11 +350,13 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
               </Button>
             </NextLinkFromReactRouter>
           </Box>
-          {chainId === ChainId.BSC && (
-            <Box>
-              <BCakeBoosterCard />
-            </Box>
-          )}
+          {
+            (chainId === ChainId.OKCTEST || chainId === ChainId.BSC) ? (
+              <Box>
+                <BCakeBoosterCard />
+              </Box>
+            ) : null
+          }
         </FarmFlexWrapper>
       </PageHeader>
       <Page>

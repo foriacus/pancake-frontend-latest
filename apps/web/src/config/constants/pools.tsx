@@ -1,7 +1,7 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import Trans from 'components/Trans'
 import { VaultKey } from 'state/types'
-import { bscTokens } from '@pancakeswap/tokens'
+import { bscTokens, okcTestnetTokens } from '@pancakeswap/tokens'
 import { SerializedPoolConfig, PoolCategory } from './types'
 
 export const MAX_LOCK_DURATION = 31536000
@@ -56,112 +56,127 @@ export const vaultPoolConfig = {
 export const livePools: SerializedPoolConfig[] = [
   {
     sousId: 0,
-    stakingToken: bscTokens.cake,
-    earningToken: bscTokens.cake,
+    // stakingToken: bscTokens.cake,
+    stakingToken: okcTestnetTokens.pigs,
+    earningToken: okcTestnetTokens.pigs,
     contractAddress: {
       97: '0xB4A466911556e39210a6bB2FaECBB59E4eB7E43d',
       56: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
+      65: '0xC5b9DaF4715461a0e63dAEBb2612a75E79f4d61b',
     },
     poolCategory: PoolCategory.CORE,
     tokenPerBlock: '10',
     isFinished: false,
   },
   {
-    sousId: 303,
-    stakingToken: bscTokens.cake,
-    earningToken: bscTokens.mgp,
+    sousId: 1,
+    stakingToken: okcTestnetTokens.pigs,
+    earningToken: okcTestnetTokens.pigs,
     contractAddress: {
-      56: '0x365F744c8b7608253697cA2Ed561537B65a3438B',
-      97: '',
+      97: '0xB4A466911556e39210a6bB2FaECBB59E4eB7E43d',
+      56: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
+      65: '0xC5b9DaF4715461a0e63dAEBb2612a75E79f4d61b',
     },
     poolCategory: PoolCategory.CORE,
-    tokenPerBlock: '6.944',
-    version: 3,
+    tokenPerBlock: '10',
+    isFinished: false,
   },
-  {
-    sousId: 302,
-    stakingToken: bscTokens.cake,
-    earningToken: bscTokens.wmx,
-    contractAddress: {
-      56: '0xaEd58Af2c98dbF05d26B3E5b3cc809fc70D203ce',
-      97: '',
-    },
-    poolCategory: PoolCategory.CORE,
-    tokenPerBlock: '0.5787',
-    version: 3,
-  },
-  {
-    sousId: 301,
-    stakingToken: bscTokens.cake,
-    earningToken: bscTokens.krs,
-    contractAddress: {
-      56: '0x067F926EB8f2a95f260327B01C29B2034A785029',
-      97: '',
-    },
-    poolCategory: PoolCategory.CORE,
-    tokenPerBlock: '4.96',
-    version: 3,
-  },
-  {
-    sousId: 300,
-    stakingToken: bscTokens.cake,
-    earningToken: bscTokens.arv,
-    contractAddress: {
-      56: '0x420Cd06440d8845FBcde9a396d9Aa211FE78C03d',
-      97: '',
-    },
-    poolCategory: PoolCategory.CORE,
-    tokenPerBlock: '1335.47',
-    version: 3,
-  },
-  {
-    sousId: 299,
-    stakingToken: bscTokens.cake,
-    earningToken: bscTokens.co,
-    contractAddress: {
-      56: '0x31736A52bBdda4eaf0117B17736306Bbecb711ca',
-      97: '',
-    },
-    poolCategory: PoolCategory.CORE,
-    tokenPerBlock: '4.6296',
-    version: 3,
-  },
-  {
-    sousId: 298,
-    stakingToken: bscTokens.cake,
-    earningToken: bscTokens.hoop,
-    contractAddress: {
-      56: '0x6C254E3AB3e4B909A2CfAA3E0b9d2B3F7887CFae',
-      97: '',
-    },
-    poolCategory: PoolCategory.CORE,
-    tokenPerBlock: '2.146',
-    version: 3,
-  },
-  {
-    sousId: 297,
-    stakingToken: bscTokens.cake,
-    earningToken: bscTokens.moni,
-    contractAddress: {
-      56: '0xB5e36D441016016f251223EBD5E946cdeFe0E2E1',
-      97: '',
-    },
-    poolCategory: PoolCategory.CORE,
-    tokenPerBlock: '2.411',
-    version: 3,
-  },
-  {
-    sousId: 296,
-    stakingToken: bscTokens.cake,
-    earningToken: bscTokens.gq,
-    contractAddress: {
-      56: '0x983A241Bfe910fcFa3E70744AA21AAe5f45861f0',
-      97: '',
-    },
-    poolCategory: PoolCategory.CORE,
-    tokenPerBlock: '55.6446',
-    version: 3,
-  },
+  // {
+  //   sousId: 303,
+  //   stakingToken: bscTokens.cake,
+  //   earningToken: bscTokens.mgp,
+  //   contractAddress: {
+  //     56: '0x365F744c8b7608253697cA2Ed561537B65a3438B',
+  //     97: '',
+  //   },
+  //   poolCategory: PoolCategory.CORE,
+  //   tokenPerBlock: '6.944',
+  //   version: 3,
+  // },
+  // {
+  //   sousId: 302,
+  //   stakingToken: bscTokens.cake,
+  //   earningToken: bscTokens.wmx,
+  //   contractAddress: {
+  //     56: '0xaEd58Af2c98dbF05d26B3E5b3cc809fc70D203ce',
+  //     97: '',
+  //   },
+  //   poolCategory: PoolCategory.CORE,
+  //   tokenPerBlock: '0.5787',
+  //   version: 3,
+  // },
+  // {
+  //   sousId: 301,
+  //   stakingToken: bscTokens.cake,
+  //   earningToken: bscTokens.krs,
+  //   contractAddress: {
+  //     56: '0x067F926EB8f2a95f260327B01C29B2034A785029',
+  //     97: '',
+  //   },
+  //   poolCategory: PoolCategory.CORE,
+  //   tokenPerBlock: '4.96',
+  //   version: 3,
+  // },
+  // {
+  //   sousId: 300,
+  //   stakingToken: bscTokens.cake,
+  //   earningToken: bscTokens.arv,
+  //   contractAddress: {
+  //     56: '0x420Cd06440d8845FBcde9a396d9Aa211FE78C03d',
+  //     97: '',
+  //   },
+  //   poolCategory: PoolCategory.CORE,
+  //   tokenPerBlock: '1335.47',
+  //   version: 3,
+  // },
+  // {
+  //   sousId: 299,
+  //   stakingToken: bscTokens.cake,
+  //   earningToken: bscTokens.co,
+  //   contractAddress: {
+  //     56: '0x31736A52bBdda4eaf0117B17736306Bbecb711ca',
+  //     97: '',
+  //   },
+  //   poolCategory: PoolCategory.CORE,
+  //   tokenPerBlock: '4.6296',
+  //   version: 3,
+  // },
+  // {
+  //   sousId: 298,
+  //   stakingToken: bscTokens.cake,
+  //   earningToken: bscTokens.hoop,
+  //   contractAddress: {
+  //     56: '0x6C254E3AB3e4B909A2CfAA3E0b9d2B3F7887CFae',
+  //     97: '',
+  //   },
+  //   poolCategory: PoolCategory.CORE,
+  //   tokenPerBlock: '2.146',
+  //   version: 3,
+  // },
+  // {
+  //   sousId: 297,
+  //   stakingToken: bscTokens.cake,
+  //   earningToken: bscTokens.moni,
+  //   contractAddress: {
+  //     56: '0xB5e36D441016016f251223EBD5E946cdeFe0E2E1',
+  //     97: '',
+  //   },
+  //   poolCategory: PoolCategory.CORE,
+  //   tokenPerBlock: '2.411',
+  //   version: 3,
+  // },
+  // {
+  //   sousId: 296,
+  //   stakingToken: bscTokens.cake,
+  //   earningToken: bscTokens.gq,
+  //   contractAddress: {
+  //     56: '0x983A241Bfe910fcFa3E70744AA21AAe5f45861f0',
+  //     97: '',
+  //   },
+  //   poolCategory: PoolCategory.CORE,
+  //   tokenPerBlock: '55.6446',
+  //   version: 3,
+  // },
 ].map((p) => ({
   ...p,
   stakingToken: p.stakingToken.serialize,
@@ -3453,4 +3468,5 @@ const finishedPools = [
   earningToken: p.earningToken.serialize,
 }))
 
-export default [...livePools, ...finishedPools]
+export default [...livePools]
+// export default [...livePools, ...finishedPools]

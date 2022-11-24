@@ -67,7 +67,8 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
     stakingTokenPrice,
     vaultKey,
     profileRequirement,
-    userDataLoaded,
+    // TODOXXX
+    userDataLoaded = true,
   } = pool
   const { t } = useTranslation()
   const { account } = useWeb3React()
@@ -212,7 +213,7 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
       <ActionContainer>
         <ActionTitles>
           <Text fontSize="12px" bold color="textSubtle" as="span" textTransform="uppercase">
-            {t('Start staking')}
+            {t('Start staking111')}
           </Text>
         </ActionTitles>
         <ActionContent>

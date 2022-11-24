@@ -33,6 +33,7 @@ const Mint: React.FC<React.PropsWithChildren> = () => {
   const bunnyFactoryContract = useBunnyFactory()
   const { t } = useTranslation()
   const { balance: cakeBalance, fetchStatus } = useGetCakeBalance()
+  console.log('111xxx3', cakeBalance, cakeBalance.gte(MINT_COST))
   const hasMinimumCakeRequired = fetchStatus === FetchStatus.Fetched && cakeBalance.gte(MINT_COST)
   const { callWithMarketGasPrice } = useCallWithMarketGasPrice()
 
@@ -77,6 +78,7 @@ const Mint: React.FC<React.PropsWithChildren> = () => {
       },
     })
 
+  console.log('111xxx', isApproved, isConfirmed, cakeBalance.toNumber(), hasMinimumCakeRequired)
   return (
     <>
       <Text fontSize="20px" color="textSubtle" bold>

@@ -245,7 +245,6 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
       </>
     )
   }
-
   return (
     <>
       {handleRenderRow()}

@@ -34,13 +34,13 @@ export async function farmV2FetchFarms({
   totalSpecialAllocPoint,
 }: FetchFarmsParams) {
   const stableFarms = farms.filter(isStableFarm)
-
+  console.log('111xxx5-1')
   const [stableFarmsResults, poolInfos, lpDataResults] = await Promise.all([
     fetchStableFarmData(stableFarms, chainId, multicallv2),
     fetchMasterChefData(farms, isTestnet, multicallv2, masterChefAddress),
     fetchPublicFarmsData(farms, chainId, multicallv2, masterChefAddress),
   ])
-
+  console.log('111xxx5-2')
   const stableFarmsData = (stableFarmsResults as StableLpData[]).map(formatStableFarm)
 
   const stableFarmsDataMap = stableFarms.reduce<Record<number, FormatStableFarmResponse>>((map, farm, index) => {
@@ -89,9 +89,9 @@ export async function farmV2FetchFarms({
       throw error
     }
   })
-
+  console.log('111xxx5-3', chainId)
   const farmsDataWithPrices = getFarmsPrices(farmsData, chainId)
-
+  console.log('111xxx5-4')
   return farmsDataWithPrices
 }
 
@@ -164,7 +164,8 @@ export const fetchMasterChefData = async (
     const masterChefMultiCallResult = await multicallv2({
       abi: masterChefV2Abi,
       calls: masterChefAggregatedCalls,
-      chainId: isTestnet ? ChainId.BSC_TESTNET : ChainId.BSC,
+      // TODOXXX
+      chainId: isTestnet ? ChainId.OKCTEST : ChainId.BSC,
     })
 
     let masterChefChunkedResultCounter = 0
@@ -215,8 +216,10 @@ export const fetchMasterChefV2Data = async ({
           params: [true],
         },
       ],
-      chainId: isTestnet ? ChainId.BSC_TESTNET : ChainId.BSC,
+      // TODOXXX 测试链
+      chainId: isTestnet ? ChainId.OKCTEST : ChainId.BSC,
     })
+    console.log('111xxxfetchMasterChefV2Data', masterChefAddress)
 
     return {
       poolLength,

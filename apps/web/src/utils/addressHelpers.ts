@@ -4,7 +4,8 @@ import addresses from 'config/constants/contracts'
 import { VaultKey } from 'state/types'
 
 export const getAddress = (address: Pool.Address, chainId?: number): string => {
-  return address[chainId] ? address[chainId] : address[ChainId.BSC]
+  // TODOXXX 替换ChainId.OKCTEST
+  return address[chainId] ? address[chainId] : address[ChainId.OKCTEST]
 }
 
 export const getMasterChefAddress = (chainId?: number) => {

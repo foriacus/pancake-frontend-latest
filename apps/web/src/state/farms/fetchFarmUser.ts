@@ -60,7 +60,6 @@ export const fetchFarmUserStakedBalances = async (
 ) => {
   const isBscNetwork = verifyBscNetwork(chainId)
   const masterChefAddress = isBscNetwork ? getMasterChefAddress(chainId) : getNonBscVaultAddress(chainId)
-
   const calls = farmsToFetch.map((farm) => {
     return {
       address: masterChefAddress,

@@ -399,6 +399,8 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
     )
   }
 
+  console.log('1111xxx7', isApproved, stakedBalance.toNumber())
+
   if (isApproved) {
     if (stakedBalance.gt(0)) {
       return (
@@ -455,6 +457,7 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
     )
   }
 
+  // TODOXXX
   if (!userDataReady) {
     return (
       <StyledActionContainer>

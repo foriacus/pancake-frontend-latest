@@ -1,30 +1,39 @@
 import { multicallAddresses } from '@pancakeswap/multicall'
 
 export default {
+  // MasterChefV2
   masterChef: {
     97: '0xB4A466911556e39210a6bB2FaECBB59E4eB7E43d',
     56: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
+    65: '0xC5b9DaF4715461a0e63dAEBb2612a75E79f4d61b',
   },
+  // MasterChef
   masterChefV1: {
     97: '0x1d32c2945C8FDCBc7156c553B7cEa4325a17f4f9',
     56: '0x73feaa1eE314F8c655E354234017bE2193C9E24E',
+    // 测试链
+    65: '0xf925ef424CAa83e56cd91053e4Fe08A8D161FF97',
   },
   sousChef: {
     97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
     56: '0x6ab8463a4185b80905e05a9ff80a2d6b714b9e95',
+    65: '0x6ab8463a4185b80905e05a9ff80a2d6b714b9e95',
   },
   lotteryV2: {
     97: '0x5790c3534F30437641541a0FA04C992799602998',
     56: '0x5aF6D33DE2ccEC94efb1bDF8f92Bd58085432d2c',
+    65: '0xC5D5AE4FE28E210781214F2AE4fDf2f0258CA9A4',
   },
   multiCall: multicallAddresses,
   pancakeProfile: {
     56: '0xDf4dBf6536201370F95e06A0F8a7a70fE40E388a',
     97: '0x4B683C7E13B6d5D7fd1FeA9530F451954c1A7c8A',
+    65: '0xcd1EeDe4E5D27667cf78be70D5eBA10E47a14694',
   },
   pancakeBunnies: {
     56: '0xDf7952B35f24aCF7fC0487D01c8d5690a60DBa07',
     97: '0x60935F36e4631F73f0f407e68642144e07aC7f5E',
+    65: '0x6aA729e5EB4b5096bD9AAA8070bb154ebACB5b72',
   },
   bunnyFactory: {
     56: '0xfa249Caa1D16f75fa159F7DFBAc0cC5EaB48CeFf',
@@ -62,9 +71,11 @@ export default {
     56: '0x23c41D28A239dDCAABd1bb1deF8d057189510066',
     97: '0x24ec6962dbe874F6B67B5C50857565667fA0854F',
   },
+  // CakeVault也就是CAKEPOOL https://bscscan.com/address/0x45c54210128a065de780C4B0Df3d16664f7f859e#code
   cakeVault: {
     56: '0x45c54210128a065de780C4B0Df3d16664f7f859e',
     97: '0x683433ba14e8F26774D43D3E90DA6Dd7a22044Fe',
+    65: '0x26Fe310de895348d982920aAbA4872Dffedf4772',
   },
   cakeFlexibleSideVault: {
     56: '0x615e896A8C2CA8470A2e9dc2E9552998f8658Ea0',
@@ -109,6 +120,7 @@ export default {
   farmAuction: {
     56: '0xb92Ab7c1edcb273AbA24b0656cEb3681654805D2',
     97: '0x3F9602593b4f7C67ab045DB51BbDEa94E40fA9Fe',
+    65: '0x8e41696eC23b9c93B196540809662D15E7A880cA',
   },
   AnniversaryAchievement: {
     56: '0xF839286bD9D14b358496829F3BaB3145C16ad3C1',
@@ -138,19 +150,23 @@ export default {
   iCake: {
     56: '0x3C458828D1622F5f4d526eb0d24Da8C4Eb8F07b1',
     97: '',
+    65: '0xc00cB8a3d0538fA4c14B5E8f938c8dd3A5764468',
   },
   bCakeFarmBooster: {
     56: '0xE4FAa3Ef5A9708C894435B0F39c2B440936A3A52',
     97: '',
+    65: '0x01681C5F45246Bbe919e7590Ff733E069b6C5F68',
   },
   bCakeFarmBoosterProxyFactory: {
     56: '0x2C36221bF724c60E9FEE3dd44e2da8017a8EF3BA',
     97: '',
+    65: '0x6AD9367bC1ea2AAB78D3f4AAEdf433CB8d0fD6B7',
   },
   nonBscVault: {
     56: '0xE6c904424417D03451fADd6E3f5b6c26BcC43841', // Only for pass contracts test
     1: '0x2e71B2688019ebdFDdE5A45e6921aaebb15b25fb',
     5: '0xE6c904424417D03451fADd6E3f5b6c26BcC43841',
+    65: '0x26Fe310de895348d982920aAbA4872Dffedf4772',
   },
   crossFarmingSender: {
     56: '0x327d26dE30f92600620A99043034e0A5FD9402C8', // Only for pass contracts test

@@ -8,7 +8,6 @@ import { fetchMasterChefData } from './fetchMasterChefData'
 const fetchFarms = async (farmsToFetch: SerializedFarmConfig[]) => {
   const farmResult = await fetchPublicFarmsData(farmsToFetch)
   const masterChefResult = await fetchMasterChefData(farmsToFetch)
-
   return farmsToFetch.map((farm, index) => {
     const [tokenBalanceLP, quoteTokenBalanceLP, lpTokenBalanceMC, lpTotalSupply, tokenDecimals, quoteTokenDecimals] =
       farmResult[index]

@@ -515,14 +515,16 @@ export default function AddLiquidity({ currencyA, currencyB }) {
     isValid = !error && !addError
     errorText = error ?? addError
   }
-
-  const buttonDisabled =
-    !isValid ||
-    ((zapIn.parsedAmounts[Field.CURRENCY_A] || (!preferZapInstead && zapTokenCheckedA)) &&
-      approvalA !== ApprovalState.APPROVED) ||
-    ((zapIn.parsedAmounts[Field.CURRENCY_B] || (!preferZapInstead && zapTokenCheckedB)) &&
-      approvalB !== ApprovalState.APPROVED) ||
-    (zapIn.priceSeverity > 3 && preferZapInstead)
+  
+  // TODOXXX
+  const buttonDisabled = !isValid
+  // const buttonDisabled =
+  //   !isValid ||
+  //   ((zapIn.parsedAmounts[Field.CURRENCY_A] || (!preferZapInstead && zapTokenCheckedA)) &&
+  //     approvalA !== ApprovalState.APPROVED) ||
+  //   ((zapIn.parsedAmounts[Field.CURRENCY_B] || (!preferZapInstead && zapTokenCheckedB)) &&
+  //     approvalB !== ApprovalState.APPROVED) ||
+  //   (zapIn.priceSeverity > 3 && preferZapInstead)
 
   const showFieldAApproval =
     (zapTokenCheckedA || !preferZapInstead) &&

@@ -115,4 +115,27 @@ export const bscTest: Chain = {
   testnet: true,
 }
 
+export const okcTest: Chain = {
+  id: 65,
+  name: 'OKCEx Chain Testnet',
+  network: 'okc-testnet',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'OKCEx Chain Native Token',
+    symbol: 'OKT',
+  },
+  rpcUrls: {
+    public: 'https://exchaintestrpc.okex.org/',
+    default: 'https://exchaintestrpc.okex.org/',
+  },
+  blockExplorers: {
+    default: { name: 'OKLink', url: 'https://www.oklink.com/zh-cn/okc-test' },
+  },
+  multicall: {
+    address: '0x4Ca509E38ded6a07b4c55e6b0afB0777fC0095FF',
+    blockCreated: 15884743,
+  },
+  testnet: true,
+};
+
 export { rinkeby, mainnet, goerli }

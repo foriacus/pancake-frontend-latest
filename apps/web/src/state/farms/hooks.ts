@@ -39,6 +39,7 @@ export const usePollFarmsWithUserData = () => {
     proxyCreated,
     isLoading: isProxyContractLoading,
   } = useBCakeProxyContractAddress(account, chainId)
+
   const farmFlag = useFeatureFlag(featureFarmApiAtom)
 
   useSWRImmutable(
@@ -56,14 +57,13 @@ export const usePollFarmsWithUserData = () => {
   const name = proxyCreated
     ? ['farmsWithUserData', account, proxyAddress, chainId]
     : ['farmsWithUserData', account, chainId]
-
+  
   useSWRImmutable(
     account && chainId && !isProxyContractLoading ? name : null,
     async () => {
       const farmsConfig = await getFarmConfig(chainId)
       const pids = farmsConfig.map((farmToFetch) => farmToFetch.pid)
       const params = proxyCreated ? { account, pids, proxyAddress, chainId } : { account, pids, chainId }
-
       dispatch(fetchFarmUserDataAsync(params))
     },
     {
@@ -79,6 +79,8 @@ export const usePollFarmsWithUserData = () => {
  */
 const coreFarmPIDs = {
   56: [2, 3],
+  // TODOXXX
+  65: [2, 3],
   97: [4, 10],
   5: [13, 11],
   1: [124, 125],

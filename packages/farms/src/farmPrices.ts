@@ -155,12 +155,12 @@ export const getFarmsPrices = (farms: FarmData[], chainId: number): FarmWithPric
   }
 
   const nativeStableFarm = farms.find((farm) => equalsIgnoreCase(farm.lpAddress, nativeStableLpMap[chainId].address))
-
+  console.log('111xxx5-4', farms)
   const nativePriceUSD =
     _toNumber(nativeStableFarm?.tokenPriceVsQuote) !== 0
-      ? FIXED_ONE.divUnsafe(FixedNumber.from(nativeStableFarm.tokenPriceVsQuote))
+      ? FIXED_ONE.divUnsafe(FixedNumber.from(nativeStableFarm?.tokenPriceVsQuote))
       : FIXED_ZERO
-
+  console.log('111xxx5-5', nativePriceUSD)
   const farmsWithPrices = farms.map((farm) => {
     const quoteTokenFarm = getFarmFromTokenAddress(farms, farm.quoteToken.address, [
       nativeStableLpMap[chainId].wNative,
@@ -205,7 +205,7 @@ export const getFarmsPrices = (farms: FarmData[], chainId: number): FarmWithPric
       lpTokenPrice: lpTokenPrice.toString(),
     }
   })
-
+  console.log('111xxx5-6')
   return farmsWithPrices
 }
 
@@ -228,6 +228,12 @@ const nativeStableLpMap = {
   [ChainId.BSC_TESTNET]: {
     address: '0x4E96D2e92680Ca65D58A0e2eB5bd1c0f44cAB897',
     wNative: 'WBNB',
+    stable: 'BUSD',
+  },
+  // TODOXXX
+  [ChainId.OKCTEST]: {
+    address: '0x70c1c53E991F31981d592C2d865383AC0d212225',
+    wNative: 'WOKT',
     stable: 'BUSD',
   },
 }

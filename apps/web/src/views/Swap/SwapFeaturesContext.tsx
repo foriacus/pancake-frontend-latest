@@ -21,10 +21,10 @@ export const SwapFeaturesContext = createContext<{
   setIsChartExpanded: null,
   setIsChartDisplayed: null,
 })
-
-const CHART_SUPPORT_CHAIN_IDS = [ChainId.BSC]
-const ACCESS_TOKEN_SUPPORT_CHAIN_IDS = [ChainId.BSC]
-const STABLE_SUPPORT_CHAIN_IDS = [ChainId.BSC_TESTNET, ChainId.BSC]
+// TODOXXX 开启StableSwap
+const CHART_SUPPORT_CHAIN_IDS = [ChainId.BSC, ChainId.OKCTEST]
+const ACCESS_TOKEN_SUPPORT_CHAIN_IDS = [ChainId.BSC, , ChainId.OKCTEST]
+const STABLE_SUPPORT_CHAIN_IDS = [ChainId.BSC_TESTNET, ChainId.BSC, ChainId.OKCTEST]
 
 export const SwapFeaturesProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { isMobile } = useMatchBreakpoints()

@@ -1,7 +1,7 @@
 import poolsConfig from 'config/constants/pools'
 import sousChefABI from 'config/abi/sousChef.json'
 import erc20ABI from 'config/abi/erc20.json'
-import multicall from 'utils/multicall'
+import multicall, { multicallv2 } from 'utils/multicall'
 import { getAddress } from 'utils/addressHelpers'
 import { bscRpcProvider } from 'utils/providers'
 import BigNumber from 'bignumber.js'
@@ -28,17 +28,19 @@ export const fetchPoolsAllowance = async (account) => {
 export const fetchUserBalances = async (account) => {
   // Non BNB pools
   const tokens = uniq(nonBnbPools.map((pool) => pool.stakingToken.address))
+  
   const calls = tokens.map((token) => ({
     address: token,
     name: 'balanceOf',
     params: [account],
   }))
-  const [tokenBalancesRaw, bnbBalance] = await Promise.all([
+  // TODOXXX
+  // const [tokenBalancesRaw, bnbBalance] = await Promise.all([
+  const [tokenBalancesRaw] = await Promise.all([
     multicall(erc20ABI, calls),
-    bscRpcProvider.getBalance(account),
+    // bscRpcProvider.getBalance(account),
   ])
   const tokenBalances = fromPairs(tokens.map((token, index) => [token, tokenBalancesRaw[index]]))
-
   const poolTokenBalances = fromPairs(
     nonBnbPools
       .map((pool) => {
@@ -49,13 +51,16 @@ export const fetchUserBalances = async (account) => {
   )
 
   // BNB pools
-  const bnbBalanceJson = new BigNumber(bnbBalance.toString()).toJSON()
-  const bnbBalances = fromPairs(bnbPools.map((pool) => [pool.sousId, bnbBalanceJson]))
+  // const bnbBalanceJson = new BigNumber(bnbBalance.toString()).toJSON()
+  // const bnbBalances = fromPairs(bnbPools.map((pool) => [pool.sousId, bnbBalanceJson]))
 
-  return { ...poolTokenBalances, ...bnbBalances }
+  // return { ...poolTokenBalances, ...bnbBalances }
+  console.log('222xxx---2-3', poolTokenBalances)
+  return { ...poolTokenBalances }
 }
 
 export const fetchUserStakeBalances = async (account) => {
+  console.log('222xxx---2-4', nonMasterPools[0].contractAddress)
   const calls = nonMasterPools.map((p) => ({
     address: getAddress(p.contractAddress),
     name: 'userInfo',

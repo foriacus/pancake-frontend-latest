@@ -1,0 +1,65 @@
+import { ChainId, ERC20Token, WOKT } from '@pancakeswap/sdk'
+import { BUSD_TESTNET, OKC_TESTNET } from './common'
+
+export const okcTestnetTokens = {
+  wokt: WOKT[ChainId.OKCTEST],
+  okb: new ERC20Token(
+    ChainId.OKCTEST,
+    '0xda9d14072ef2262c64240da3a93fea2279253611',
+    18,
+    'OKB',
+    'OKB Token',
+    'https://pancakeswap.finance/',
+  ),
+  ss: new ERC20Token(
+    ChainId.OKCTEST,
+    '0xedd8772e0ef73E2b9BdC0B3929792071656696BE',
+    18,
+    'SS',
+    'SSSS Token',
+    'https://pancakeswap.finance/',
+  ),
+  tt: new ERC20Token(
+    ChainId.OKCTEST,
+    '0xe801E8c1f86Ac147efF38f14F9D89b05d1474Cda',
+    18,
+    'TT',
+    'TTTT Token',
+    'https://pancakeswap.finance/',
+  ),
+  okt: OKC_TESTNET,
+  pigs: new ERC20Token(
+    ChainId.OKCTEST,
+    '0xfc199b9a9577beece11d39553d573b455be60d02',
+    18,
+    'PIGS',
+    'PIGS Token',
+    'https://pancakeswap.finance/',
+  ),
+  busd: BUSD_TESTNET,
+  syrup: new ERC20Token(
+    ChainId.OKCTEST,
+    '0x4F8bFC652187c4edbAD85970e7ACf4a258580221',
+    18,
+    'SYRUP',
+    'SyrupBar Token',
+    'https://pancakeswap.finance/',
+  ),
+  // bake: new ERC20Token(
+  //   ChainId.BSC_TESTNET,
+  //   '0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5',
+  //   18,
+  //   'BAKE',
+  //   'Bakeryswap Token',
+  //   'https://www.bakeryswap.org/',
+  // ),
+  // hbtc: new ERC20Token(ChainId.BSC_TESTNET, '0x3Fb6a6C06c7486BD194BB99a078B89B9ECaF4c82', 18, 'HBTC', 'Huobi BTC'),
+  // wbtc: new ERC20Token(ChainId.BSC_TESTNET, '0xfC8bFbe9644e1BC836b8821660593e7de711e564', 8, 'WBTC', 'Wrapped BTC'),
+  // usdc: new ERC20Token(
+  //   ChainId.BSC_TESTNET,
+  //   '0x2fB98DCc527c1403F92c6Bed05a50725d3005636',
+  //   18,
+  //   'USDC',
+  //   'Binance-Peg USD Coin',
+  // ),
+}

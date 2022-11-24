@@ -47,7 +47,6 @@ const fetchFarmsWithAuctions = async (
       }).toJSON(),
     }
   }
-
   return { winnerFarms: [], auctionHostingEndDate: null }
 }
 
